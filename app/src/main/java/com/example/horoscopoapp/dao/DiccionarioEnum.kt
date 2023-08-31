@@ -1,4 +1,4 @@
-package com.example.horoscopoapp.dao.dao
+package com.example.horoscopoapp.dao
 
 enum class ELEMENTO(val tag: String) {
     AGUA("Agua"),

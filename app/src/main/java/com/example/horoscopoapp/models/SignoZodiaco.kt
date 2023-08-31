@@ -1,4 +1,4 @@
-package com.example.horoscopoapp.dao.dao
+package com.example.horoscopoapp.models
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -10,8 +10,10 @@ data class SignoZodiaco(
     @ColumnInfo(name="zod_id")
     val signoZodiacoId: Int,
     @ColumnInfo(name="zod_nombre")
-    val nombre: String,
+    val nombre: String?
+    /*,
     @ColumnInfo(name="zod_imagen")
     val imagen: String //URL
+    */
 )
 

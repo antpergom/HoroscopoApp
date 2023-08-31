@@ -1,4 +1,4 @@
-package com.example.horoscopoapp.dao.dao
+package com.example.horoscopoapp.models
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -15,24 +15,28 @@ import java.time.LocalDateTime
 )data class SignoZodiacoPrediccion(
     @PrimaryKey
     @ColumnInfo(name = "pre_id")
-    val prediccionHoroscopo: Int,
+    val prediccionId: Int,
     @ColumnInfo(name = "pre_fecha")
-    val fecha: LocalDateTime,
+    val fecha: LocalDateTime?,
     @ColumnInfo(name = "pre_descripcion")
-    val descripcion: String,
+    val descripcion: String?,
     @ColumnInfo(name = "pre_amor")
-    val prediccionAmor: String,
+    val prediccionAmor: String?,
     @ColumnInfo(name = "pre_amigosfamilia")
-    val prediccionAmistadFamilia: String,
+    val prediccionAmistadFamilia: String?,
     @ColumnInfo(name = "pre_salud")
-    val predicionSalud: String,
+    val predicionSalud: String?,
     @ColumnInfo(name = "pre_dinero")
-    val preediccionDinero: String,
+    val preediccionDinero: String?,
     @ColumnInfo(name = "pre_numerosuerte")
-    val numerosSuerte: List<Int>,
+    val numerosSuerte: List<Int>?,
+    @ColumnInfo(name = "pre_palabrasuerte")
+    val palabraSuerte: String?,
+    @ColumnInfo(name = "pre_colorsuerte")
+    val colorSuerte: String?,
     @ColumnInfo(name = "pre_id")
-    val estadoPlaneta: Int,
+    val estadoPlaneta: Int?,
 
     @ColumnInfo(name = "zod_id")
-    val signoZodiacoId: Int,
+    val signoZodiacoId: Int
 )
