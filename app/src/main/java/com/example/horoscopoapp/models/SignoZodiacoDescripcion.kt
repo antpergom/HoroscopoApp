@@ -18,10 +18,8 @@ import com.example.horoscopoapp.dao.PIEDRA
     @PrimaryKey
     @ColumnInfo(name="des_id")
     val descripcionId: Int,
-    /*
-    @ColumnInfo(name="zod_nombre")
-    val nombre: String,
-     */
+    @ColumnInfo(name="des_cuerpo")
+    val cuerpo: String,
     @ColumnInfo(name="des_imagen")
     val imagen: String?, //URL
     @ColumnInfo(name = "des_elemento")
