@@ -11,7 +11,10 @@ import com.example.horoscopoapp.dao.PIEDRA
 
 @Entity(tableName="tdescripcion",
     foreignKeys = [
-        ForeignKey(entity = SignoZodiaco::class, parentColumns = ["zod_id"], childColumns = ["zod_id"])
+        ForeignKey(entity = SignoZodiaco::class,
+            parentColumns = ["zod_id"],
+            childColumns = ["zod_id"],
+            onDelete = ForeignKey.CASCADE)
     ],
     indices = [Index(value = ["zod_id"])]
 )data class SignoZodiacoDescripcion(

@@ -4,6 +4,7 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
+//TODO: dejar para más adelante
 @Entity(tableName="tcompatibilidad")
 data class SignoZodiacoCompatiblidad(
     @PrimaryKey

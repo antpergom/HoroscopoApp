@@ -15,13 +15,13 @@ class DaoInterfaces {
     @Dao
     interface SignoZodiacoDao {
         @Insert
-        suspend fun insert(signoZodiaco: SignoZodiaco)
+        suspend fun insert(vararg signoZodiaco: SignoZodiaco)
 
         @Update
-        suspend fun update(signoZodiaco: SignoZodiaco)
+        suspend fun update(vararg signoZodiaco: SignoZodiaco)
 
         @Delete
-        suspend fun delete(signoZodiaco: SignoZodiaco)
+        suspend fun delete(vararg signoZodiaco: SignoZodiaco)
 
         @Query("SELECT * FROM tsignozodiaco")
         suspend fun getAllPredicciones(): List<SignoZodiaco>
@@ -33,13 +33,13 @@ class DaoInterfaces {
     @Dao
     interface SignoZodiacoPrediccionDao {
         @Insert
-        suspend fun insert(prediccion: SignoZodiacoPrediccion)
+        suspend fun insert(vararg prediccion: SignoZodiacoPrediccion)
 
         @Update
-        suspend fun update(prediccion: SignoZodiacoPrediccion)
+        suspend fun update(vararg prediccion: SignoZodiacoPrediccion)
 
         @Delete
-        suspend fun delete(prediccion: SignoZodiacoPrediccion)
+        suspend fun delete(vararg prediccion: SignoZodiacoPrediccion)
 
         @Query("SELECT * FROM tprediccion")
         suspend fun getAllPredicciones(): List<SignoZodiacoPrediccion>
@@ -51,12 +51,12 @@ class DaoInterfaces {
     @Dao
     interface SignoZodiacoDescripcionDao {
         @Insert
-        suspend fun insert(descripcion: SignoZodiacoDescripcion)
+        suspend fun insert(vararg descripcion: SignoZodiacoDescripcion)
         @Update
-        suspend fun update(descripcion: SignoZodiacoPrediccion)
+        suspend fun update(vararg descripcion: SignoZodiacoPrediccion)
 
         @Delete
-        suspend fun delete(descripcion: SignoZodiacoPrediccion)
+        suspend fun delete(vararg descripcion: SignoZodiacoPrediccion)
 
         @Query("SELECT * FROM tdescripcion")
         suspend fun getAllPredicciones(): List<SignoZodiacoDescripcion>
@@ -68,13 +68,13 @@ class DaoInterfaces {
     @Dao
     interface SignoZodiacoCompatibilidadDao {
         @Insert
-        suspend fun insert(compatibilidad: SignoZodiacoCompatiblidad)
+        suspend fun insert(vararg compatibilidad: SignoZodiacoCompatiblidad)
 
         @Update
-        suspend fun update(compatibilidad: SignoZodiacoCompatiblidad)
+        suspend fun update(vararg compatibilidad: SignoZodiacoCompatiblidad)
 
         @Delete
-        suspend fun delete(compatibilidad: SignoZodiacoCompatiblidad)
+        suspend fun delete(vararg compatibilidad: SignoZodiacoCompatiblidad)
 
         @Query("SELECT * FROM tcompatibilidad")
         suspend fun getAllPredicciones(): List<SignoZodiacoCompatiblidad>

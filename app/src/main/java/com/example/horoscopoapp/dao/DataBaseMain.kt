@@ -11,9 +11,7 @@ import com.example.horoscopoapp.models.SignoZodiacoDescripcion
 import com.example.horoscopoapp.models.SignoZodiacoPrediccion
 
 @Database(entities = [SignoZodiaco::class, SignoZodiacoCompatiblidad::class, SignoZodiacoPrediccion::class, SignoZodiacoDescripcion::class, SignoZodiacoPrediccion::class], version = 1)
-abstract class DataBaseMain: RoomDatabase() {       //TODO: Entender si esto es una clase que extiende RoomDataBase o qué rol exactamente juega
-
-    val DATATBASE_NAME : String = "horoscopo-db";
+abstract class DataBaseMain: RoomDatabase() {
 
     abstract fun SignoZodiacoDao(): DaoInterfaces.SignoZodiacoDao;
     abstract fun SignoZodiacoPrediccionDao(): DaoInterfaces.SignoZodiacoPrediccionDao;
@@ -24,6 +22,7 @@ abstract class DataBaseMain: RoomDatabase() {       //TODO: Entender si esto es 
     companion object {
         @Volatile
         private var db: DataBaseMain? = null
+        val DATATBASE_NAME : String = "horoscopo-db";
 
         fun getDatabase(context: Context): DataBaseMain {
             val tempInstance = db
@@ -34,7 +33,7 @@ abstract class DataBaseMain: RoomDatabase() {       //TODO: Entender si esto es 
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     DataBaseMain::class.java,
-                    "horoscopo-db"
+                    DATATBASE_NAME
                 ).build()
                 db = instance
                 return instance
