@@ -5,12 +5,15 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.Room.databaseBuilder
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
+import com.example.horoscopoapp.converters.Converters
 import com.example.horoscopoapp.models.SignoZodiaco
 import com.example.horoscopoapp.models.SignoZodiacoCompatiblidad
 import com.example.horoscopoapp.models.SignoZodiacoDescripcion
 import com.example.horoscopoapp.models.SignoZodiacoPrediccion
 
-@Database(entities = [SignoZodiaco::class, SignoZodiacoCompatiblidad::class, SignoZodiacoPrediccion::class, SignoZodiacoDescripcion::class, SignoZodiacoPrediccion::class], version = 1)
+@Database(entities = [SignoZodiaco::class, SignoZodiacoCompatiblidad::class, SignoZodiacoPrediccion::class, SignoZodiacoDescripcion::class], version = 1)
+@TypeConverters(Converters::class)
 abstract class DataBaseMain: RoomDatabase() {
 
     abstract fun SignoZodiacoDao(): DaoInterfaces.SignoZodiacoDao;
@@ -18,7 +21,6 @@ abstract class DataBaseMain: RoomDatabase() {
     abstract fun SignoZodiacoDescripcionDao(): DaoInterfaces.SignoZodiacoDescripcionDao;
     abstract fun SignoZodiacoCompatibilidadDao(): DaoInterfaces.SignoZodiacoCompatibilidadDao;
 
-    //Llamada: val database = DatabaseMain.getDatabase(context)
     companion object {
         @Volatile
         private var db: DataBaseMain? = null
@@ -30,13 +32,18 @@ abstract class DataBaseMain: RoomDatabase() {
                 return tempInstance
             }
             synchronized(this) {
-                val instance = Room.databaseBuilder(
-                    context.applicationContext,
-                    DataBaseMain::class.java,
-                    DATATBASE_NAME
-                ).build()
-                db = instance
-                return instance
+                try{
+                    val instance = Room.databaseBuilder(
+                        context,
+                        DataBaseMain::class.java,
+                        DATATBASE_NAME
+                    ).build()
+                    db = instance
+                    return instance
+                }catch(e: Exception){
+                    e.stackTrace
+                }
+            return db!!
             }
         }
     }

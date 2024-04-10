@@ -13,9 +13,9 @@ import java.time.LocalDateTime
     ],
     indices = [Index(value = ["zod_id"])]
 )data class SignoZodiacoPrediccion(
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "pre_id")
-    val prediccionId: Int,
+    val prediccionId: Int = 0,
     @ColumnInfo(name = "pre_fecha")
     val fecha: LocalDateTime?,
     @ColumnInfo(name = "pre_descripcion")
@@ -27,16 +27,21 @@ import java.time.LocalDateTime
     @ColumnInfo(name = "pre_salud")
     val predicionSalud: String?,
     @ColumnInfo(name = "pre_dinero")
-    val preediccionDinero: String?,
+    val prediccionDinero: String?,
     @ColumnInfo(name = "pre_numerosuerte")
-    val numerosSuerte: List<Int>?,
+    val numerosSuerte: Set<Int>?,
     @ColumnInfo(name = "pre_palabrasuerte")
     val palabraSuerte: String?,
     @ColumnInfo(name = "pre_colorsuerte")
     val colorSuerte: String?,
-    @ColumnInfo(name = "pre_id")
+    @ColumnInfo(name = "pre_estadoplaneta")
     val estadoPlaneta: Int?,
 
     @ColumnInfo(name = "zod_id")
     val signoZodiacoId: Int
-)
+){
+    constructor(fecha: LocalDateTime?, descripcion: String?, amor: String?, amistadFamilia: String?, salud: String?, dinero: String?,
+                numerosSuerte: Set<Int>, palabraSuerte: String?, colorSuerte: String?, estadoPlaneta: Int?, signoZodiacoInt: Int):
+            this(0, fecha, descripcion, amor, amistadFamilia, salud, dinero, numerosSuerte, palabraSuerte,
+                colorSuerte, estadoPlaneta, signoZodiacoInt)
+}

@@ -7,9 +7,9 @@ import androidx.room.PrimaryKey
 //TODO: dejar para más adelante
 @Entity(tableName="tcompatibilidad")
 data class SignoZodiacoCompatiblidad(
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "com_id")
-    val compatibilidadId: Int,
+    val compatibilidadId: Int = 0,
     @ColumnInfo(name = "com_amor")
     val compatibilidadAmor: Int?,
     @ColumnInfo(name = "com_sexo")

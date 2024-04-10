@@ -18,21 +18,24 @@ import com.example.horoscopoapp.dao.PIEDRA
     ],
     indices = [Index(value = ["zod_id"])]
 )data class SignoZodiacoDescripcion(
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name="des_id")
-    val descripcionId: Int,
+    val descripcionId: Int = 0,
     @ColumnInfo(name="des_cuerpo")
     val cuerpo: String,
     @ColumnInfo(name="des_imagen")
     val imagen: String?, //URL
     @ColumnInfo(name = "des_elemento")
-    val elemento: List<ELEMENTO>?,
+    val elemento: Set<ELEMENTO>?,
     @ColumnInfo(name = "des_planetas")
-    val cuerposCelestes: List<CUERPO_CELESTE>?,
+    val cuerposCelestes: Set<CUERPO_CELESTE>?,
     @ColumnInfo(name = "des_piedraspreciosas")
-    val piedrasPreciosas: List<PIEDRA>?,
+    val piedrasPreciosas: Set<PIEDRA>?,
 
     @ColumnInfo(name = "zod_id")
     val signoZodiacoId: Int
-)
+){
+    constructor(cuerpo: String, imagen: String?, elementos: Set<ELEMENTO>?, planetas: Set<CUERPO_CELESTE>?, piedras: Set<PIEDRA>?, signoZodiacoId: Int)
+            :this(0, cuerpo, imagen, elementos, planetas, piedras, signoZodiacoId)
+}
 

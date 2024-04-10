@@ -24,10 +24,10 @@ class DaoInterfaces {
         suspend fun delete(vararg signoZodiaco: SignoZodiaco)
 
         @Query("SELECT * FROM tsignozodiaco")
-        suspend fun getAllPredicciones(): List<SignoZodiaco>
+        suspend fun getAllSignoZodiaco(): List<SignoZodiaco>
 
         @Query("SELECT * FROM tsignozodiaco WHERE zod_id = :signoZodiacoId")
-        suspend fun getPrediccionById(signoZodiacoId: Int): SignoZodiaco?
+        suspend fun getSignoById(signoZodiacoId: Int): SignoZodiaco?
     }
 
     @Dao
@@ -59,10 +59,10 @@ class DaoInterfaces {
         suspend fun delete(vararg descripcion: SignoZodiacoPrediccion)
 
         @Query("SELECT * FROM tdescripcion")
-        suspend fun getAllPredicciones(): List<SignoZodiacoDescripcion>
+        suspend fun getAllDescripcion(): List<SignoZodiacoDescripcion>
 
         @Query("SELECT * FROM tdescripcion WHERE des_id = :descripcionId")
-        suspend fun getPrediccionById(descripcionId: Int): SignoZodiacoDescripcion?
+        suspend fun getDescripcionById(descripcionId: Int): SignoZodiacoDescripcion?
     }
 
     @Dao
@@ -77,10 +77,10 @@ class DaoInterfaces {
         suspend fun delete(vararg compatibilidad: SignoZodiacoCompatiblidad)
 
         @Query("SELECT * FROM tcompatibilidad")
-        suspend fun getAllPredicciones(): List<SignoZodiacoCompatiblidad>
+        suspend fun getAllCompatibilidad(): List<SignoZodiacoCompatiblidad>
 
         @Query("SELECT * FROM tcompatibilidad WHERE com_id = :compatibilidadId")
-        suspend fun getPrediccionById(compatibilidadId: Int): SignoZodiacoCompatiblidad?
+        suspend fun getCompatibilidadById(compatibilidadId: Int): SignoZodiacoCompatiblidad?
     }
 
 
