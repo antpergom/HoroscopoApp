@@ -1,5 +1,6 @@
-package com.example.horoscopoapp.pages
+package com.example.horoscopoapp.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -32,6 +33,11 @@ class SplashActivity : AppCompatActivity() {
             testDAO()
         }
 
+        val pantallaPrincipalButton = binding.button3
+        pantallaPrincipalButton.setOnClickListener {
+            val toMainIntent= Intent(applicationContext, MainActivity::class.java)
+            startActivity(toMainIntent)
+        }
     }
 
     private fun testDAO(){
@@ -106,10 +112,6 @@ class SplashActivity : AppCompatActivity() {
             val descExt = async {db.SignoZodiacoDescripcionDao().getAllDescripcion() }.await()
             Log.d("Descripciones extraidas", descExt.toString())
         }
-
-        //lifecycleScope.launch(){
-
-        //}
     }
 
     private fun populatePrediccion(){

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragmentMenu">
+    <fragment
+        android:id="@+id/fragmentMenu"
+        android:name="com.example.horoscopoapp.fragment.SignoZodiacoMenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_signo_zodiaco_menu" >
+        <action
+            android:id="@+id/action_menuFragment_to_descripcionFragment"
+            app:destination="@id/descripcionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/descripcionFragment"
+        android:name="com.example.horoscopoapp.fragment.DescripcionFragment"
+        android:label="fragment_descripcion"
+        tools:layout="@layout/fragment_descripcion" >
+        <action
+            android:id="@+id/action_descripcionFragment_to_prediccionFragment"
+            app:destination="@id/prediccionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/prediccionFragment"
+        android:name="com.example.horoscopoapp.fragment.PrediccionFragment"
+        android:label="fragment_prediccion"
+        tools:layout="@layout/fragment_prediccion" >
+        <action
+            android:id="@+id/action_prediccionFragment_to_descripcionFragment"
+            app:destination="@id/descripcionFragment" />
+    </fragment>
+</navigation>
