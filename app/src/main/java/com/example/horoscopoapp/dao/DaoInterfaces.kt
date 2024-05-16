@@ -61,8 +61,20 @@ class DaoInterfaces {
         @Query("SELECT * FROM tdescripcion")
         suspend fun getAllDescripcion(): List<SignoZodiacoDescripcion>
 
+        @Query("SELECT d.*\n" +
+                "FROM tdescripcion d\n" +
+                "JOIN (\n" +
+                "    SELECT MAX(des_id) AS min_des_id\n" +
+                "    FROM tdescripcion\n" +
+                "    GROUP BY zod_id\n" +
+                ") min_ids ON d.des_id = min_ids.min_des_id")
+        suspend fun getAllDescripcionLastUnique(): List<SignoZodiacoDescripcion>
+
         @Query("SELECT * FROM tdescripcion WHERE des_id = :descripcionId")
         suspend fun getDescripcionById(descripcionId: Int): SignoZodiacoDescripcion?
+
+        @Query("SELECT * FROM tdescripcion WHERE des_id = :descripcionId ORDER BY des_id DESC LIMIT 1")
+        suspend fun getDescripcionByIdLastUnique(descripcionId: Int): SignoZodiacoDescripcion?
     }
 
     @Dao

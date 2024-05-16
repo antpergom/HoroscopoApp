@@ -111,6 +111,10 @@ class SplashActivity : AppCompatActivity() {
             async {db.SignoZodiacoDescripcionDao().insert(*listaDescInsert.toTypedArray())}.await()
             val descExt = async {db.SignoZodiacoDescripcionDao().getAllDescripcion() }.await()
             Log.d("Descripciones extraidas", descExt.toString())
+
+            async {db.SignoZodiacoDescripcionDao().insert(*listaDescInsert.toTypedArray())}.await()
+            val descExtUnique = async {db.SignoZodiacoDescripcionDao().getAllDescripcionLastUnique() }.await()
+            Log.d("Descripciones extraidas unicas", descExtUnique.toString())
         }
     }
 

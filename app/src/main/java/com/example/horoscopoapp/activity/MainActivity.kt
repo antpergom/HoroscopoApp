@@ -1,19 +1,12 @@
 package com.example.horoscopoapp.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
-import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import com.example.horoscopoapp.R
 import com.example.horoscopoapp.databinding.ActivityMainBinding
-import com.example.horoscopoapp.databinding.FragmentPrediccionBinding
-import com.example.horoscopoapp.databinding.FragmentSignoZodiacoMenuBinding
-import com.example.horoscopoapp.databinding.FragmentZodiacoDescripcionBinding
-import com.example.horoscopoapp.fragment.DescripcionFragment
-import com.example.horoscopoapp.fragment.SignoZodiacoMenuFragment
-import com.example.horoscopoapp.fragment.PrediccionFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -35,6 +28,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun loadFragment(f: Fragment) {
         when(f) {
+            /*
             is SignoZodiacoMenuFragment -> {
                 val binding = FragmentSignoZodiacoMenuBinding.inflate(layoutInflater)
             }
@@ -44,6 +38,8 @@ class MainActivity : AppCompatActivity() {
             is PrediccionFragment -> {
                 val binding = FragmentPrediccionBinding.inflate(layoutInflater)
             }
+
+             */
         }
     }
 

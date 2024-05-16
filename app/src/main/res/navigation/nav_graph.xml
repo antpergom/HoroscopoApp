@@ -10,25 +10,38 @@
         android:label="fragment_menu"
         tools:layout="@layout/fragment_signo_zodiaco_menu" >
         <action
-            android:id="@+id/action_menuFragment_to_descripcionFragment"
-            app:destination="@id/descripcionFragment" />
+            android:id="@+id/action_fragmentMenu_to_fragmentDetalle"
+            app:destination="@id/fragmentDetalle" />
     </fragment>
     <fragment
-        android:id="@+id/descripcionFragment"
-        android:name="com.example.horoscopoapp.fragment.DescripcionFragment"
-        android:label="fragment_descripcion"
-        tools:layout="@layout/fragment_descripcion" >
+        android:id="@+id/fragmentDetalle"
+        android:name="com.example.horoscopoapp.fragment.SignoZodiacoDetalleFragment"
+        android:label="fragment_detalle"
+        tools:layout="@layout/fragment_signo_zodiaco_detalle" >
         <action
-            android:id="@+id/action_descripcionFragment_to_prediccionFragment"
-            app:destination="@id/prediccionFragment" />
+            android:id="@+id/action_tab1"
+            app:destination="@id/signoZodiacoDetalleDescripcionFragment" />
+        <action
+            android:id="@+id/action_tab2"
+            app:destination="@id/signoZodiacoDetallePrediccion" />
+        <action
+            android:id="@+id/action_tab3"
+            app:destination="@id/signoZodiacoDetalleCompatibilidad" />
     </fragment>
     <fragment
-        android:id="@+id/prediccionFragment"
-        android:name="com.example.horoscopoapp.fragment.PrediccionFragment"
-        android:label="fragment_prediccion"
-        tools:layout="@layout/fragment_prediccion" >
-        <action
-            android:id="@+id/action_prediccionFragment_to_descripcionFragment"
-            app:destination="@id/descripcionFragment" />
-    </fragment>
+        android:id="@+id/signoZodiacoDetalleDescripcionFragment"
+        android:name="com.example.horoscopoapp.SignoZodiacoDetalleDescripcionFragment"
+        android:label="fragment_signo_zodiaco_detalle_descripcion"
+        tools:layout="@layout/fragment_signo_zodiaco_detalle_descripcion" />
+    <fragment
+        android:id="@+id/signoZodiacoDetallePrediccion"
+        android:name="com.example.horoscopoapp.SignoZodiacoDetallePrediccion"
+        android:label="fragment_signo_zodiaco_detalle_prediccion"
+        tools:layout="@layout/fragment_signo_zodiaco_detalle_prediccion" />
+    <fragment
+        android:id="@+id/signoZodiacoDetalleCompatibilidad"
+        android:name="com.example.horoscopoapp.SignoZodiacoDetalleCompatibilidad"
+        android:label="fragment_signo_zodiaco_detalle_compatibilidad"
+        tools:layout="@layout/fragment_signo_zodiaco_detalle_compatibilidad" />
+
 </navigation>

@@ -1,13 +1,17 @@
-package com.example.horoscopoapp.fragment
+package com.example.horoscopoapp
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.horoscopoapp.R
 
-class DescripcionFragment : Fragment() {
+/**
+ * A simple [Fragment] subclass.
+ * Use the [SignoZodiacoDetalleCompatibilidad.newInstance] factory method to
+ * create an instance of this fragment.
+ */
+class SignoZodiacoDetalleCompatibilidad : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,10 +23,11 @@ class DescripcionFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_descripcion, container, false)
+        return inflater.inflate(
+            R.layout.fragment_signo_zodiaco_detalle_compatibilidad,
+            container,
+            false
+        )
     }
 
-    companion object {
-
-    }
 }

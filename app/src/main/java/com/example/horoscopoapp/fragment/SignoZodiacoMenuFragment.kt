@@ -7,9 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.horoscopoapp.activity.adapters.SignoZodiacoAdapterPager
-import com.example.horoscopoapp.adapters.SignoZodiacoAdapter
+import com.example.horoscopoapp.adapters.SignoZodiacoMenuAdapter
+import com.example.horoscopoapp.adapters.SignoZodiacoPagerAdapter
 import com.example.horoscopoapp.dao.DataBaseMain
 import com.example.horoscopoapp.databinding.FragmentSignoZodiacoMenuBinding
 import com.example.horoscopoapp.models.SignoZodiaco
@@ -22,7 +23,7 @@ class SignoZodiacoMenuFragment : Fragment() {
     val binding get() = _binding!!
 
     private var items: List<SignoZodiaco> = listOf()
-    private lateinit var adapter: SignoZodiacoAdapterPager
+    private lateinit var adapter: SignoZodiacoPagerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,19 +68,24 @@ class SignoZodiacoMenuFragment : Fragment() {
 */
     private fun getItems(){
         lifecycleScope.launch {
-            val deferred = lifecycleScope.async {
+            val deferredSignos = lifecycleScope.async {
                 val db: DataBaseMain = DataBaseMain.getDatabase(requireContext())
                 val signos = db.SignoZodiacoDao().getAllSignoZodiaco()
                 signos
             }
+            items = deferredSignos.await()
 
-            items = deferred.await()
+            val deferredDesc = lifecycleScope.async {
+                val db: DataBaseMain = DataBaseMain.getDatabase(requireContext())
+                //val desc = db.SignoZodiacoDescripcionDao().getDescripcionLastUnique()
+            }
 
+            //TODO: eh aquí el temita... la imagen está en la descripción, quizá debería estar en el signo como tal
+            // no añadiría más complejidad que la de cambiar una entrada de BD si hubiera que cambiar las imágenes
+            // también tengo que cambiar el fondo según el color elemento dle signo
             val recyclerView = binding.mainMenuRv
-            recyclerView.adapter = SignoZodiacoAdapter(items)
+            recyclerView.adapter = SignoZodiacoMenuAdapter(requireContext(), items, listOf(), findNavController())
             recyclerView.layoutManager = GridLayoutManager(requireContext(), 3)
-            // Después de inicializar items, configura el RecyclerView y el adaptador
-            //setupRecyclerView()
         }
     }
 

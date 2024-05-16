@@ -16,6 +16,8 @@ data class SignoZodiaco(
     val nombre: String?
 ){
     constructor(nombre: String?): this(0, nombre)
+
+
 }
 
 

@@ -9,4 +9,13 @@
     <color name="mainText">#F1F1F1</color>
     <color name="mainTextBlack">#181818</color>
 
+    <color name="gradient_agua_1">#0047FF</color>
+    <color name="gradient_agua_2">#13FFFF</color>
+    <color name="gradient_tierra_1">#4A1606</color>
+    <color name="gradient_tierra_2">#E4793C</color>
+    <color name="gradient_aire_1">#45FFA6</color>
+    <color name="gradient_aire_2">#FF5EF9</color>
+    <color name="gradient_fuego_1">#FF1010</color>
+    <color name="gradient_fuego_2">#FFB801</color>
+
 </resources>

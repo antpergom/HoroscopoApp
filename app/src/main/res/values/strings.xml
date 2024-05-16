@@ -5,4 +5,10 @@
     <string name="boton1">Botón1</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="lorem_ipsum_50">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam quis nibh rhoncus, vehicula nunc at, dictum quam. Curabitur luctus bibendum mollis. Vivamus metus arcu, malesuada ac purus vitae, scelerisque suscipit mi. Aliquam eu ante nibh. Vestibulum ut porttitor eros. Morbi rhoncus nibh ac libero pellentesque viverra. Nullam auctor, diam ut.
+    </string>
+    <string name="lorem_ipsum_80">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec magna ipsum. Nunc lobortis vestibulum suscipit. Suspendisse quam lorem, dignissim non tellus sit amet, aliquet dignissim felis. Suspendisse viverra scelerisque dapibus. Pellentesque fringilla purus at dui vestibulum, sed tempus ipsum efficitur. In sit amet placerat tortor, ut tristique risus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Phasellus semper placerat velit, non dignissim turpis tristique at. Sed vitae rhoncus nulla, eget porttitor lacus. Nam nec.
+    </string>
 </resources>
